@@ -14,9 +14,7 @@ PlayerX = 100
 PlayerY = 100
 PlayerDirection = "L"
 velocity = 5
-extern size_t g_width;
-extern size_t g_height;
-extern int* g_cells;
+
 
 
 while running:
