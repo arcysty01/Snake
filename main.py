@@ -1,2 +1,2 @@
-rint("Hello World")
+rint("niggi")
 # asdasddas
