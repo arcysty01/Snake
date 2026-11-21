@@ -7,7 +7,7 @@ pygame.display.set_caption("Uma")
 font = pygame.font.SysFont("Comic Sans MS", 30)
 napis = font.render("Umamusume", False, [255,255,255])
 screen.blit(napis, [0,0])
-pygame.surface.flip()
+pygame.display.flip()
 clock = pygame.time.Clock()
 running = True
 
