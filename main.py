@@ -46,9 +46,6 @@ while running:
     pygame.draw.rect(screen, [162,203,000], pygame.Rect(PlayerX,PlayerY,20,20))   
     # fill the screen with a color to wipe away anything from last frame
     # screen.fill("purple")
-    
-    print("X:", PlayerX + 20)
-    print("Y:", PlayerY)
 
     if PlayerDirection == "L":
         PlayerX -= velocity
