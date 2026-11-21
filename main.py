@@ -1,4 +1,5 @@
 import pygame
+import random
 
 # pygame setup
 pygame.init()
@@ -17,6 +18,13 @@ PlayerX = StartX
 PlayerY = StartY
 PlayerDirection = "L"
 velocity = 5
+Delay = 60
+RandomX = random.randrange(0, HEIGHT - 20)
+RandomY = random.randrange(0, WIDTH - 20)
+Visible = True
+
+def spawnApple():
+    pygame.draw.rect(screen, "orange", pygame.Rect(RandomX, RandomY,20,20))   
 
 while running:
     # poll for events
@@ -33,7 +41,8 @@ while running:
             PlayerDirection = "U"
         if event.key == pygame.K_DOWN:
             PlayerDirection = "D"
-            
+         
+
     screen.blit(napis, [330,210])  
     if PlayerY < 0 or PlayerY > WIDTH - 20:
         PlayerY = StartY
@@ -45,8 +54,13 @@ while running:
     helios = pygame.image.load("daitaku.png")   
     screen.blit(helios, [0,0])
     pygame.draw.rect(screen, "red", pygame.Rect(PlayerX,PlayerY,20,20))   
-    # fill the screen with a color to wipe away anything from last frame
-    # screen.fill("purple")
+    
+    if Visible == True:
+        spawnApple()
+    else:
+        RandomY = random.randrange(0, WIDTH - 20)
+        RandomX = random.randrange(0, HEIGHT - 20)
+
 
     if PlayerDirection == "L":
         PlayerX -= velocity
@@ -56,7 +70,6 @@ while running:
         PlayerY += velocity
     if PlayerDirection == "R":
         PlayerX += velocity
-    # RENDER YOUR GAME HERE
 
     # flip() the display to put your work on screen
     pygame.display.flip()
