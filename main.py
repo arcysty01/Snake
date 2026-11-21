@@ -36,9 +36,11 @@ while running:
             
     screen.blit(napis, [330,210])  
     if PlayerY < 0 or PlayerY > WIDTH - 20:
-        running = False
+        PlayerY = StartY
+        PlayerX = StartX
     if PlayerX < 0 or PlayerX > HEIGHT - 20:
-        running = False
+        PlayerX = StartX
+        PlayerY = StartY
 
     helios = pygame.image.load("daitaku.png")   
     screen.blit(helios, [0,0])
