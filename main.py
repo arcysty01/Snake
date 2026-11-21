@@ -10,6 +10,11 @@ screen.blit(napis, [330,210])
 pygame.display.flip()
 clock = pygame.time.Clock()
 running = True
+PlayerX = 100
+PlayerY = 100
+PlayerDirection = "L"
+velocity = 5
+
 
 while running:
     # poll for events
@@ -17,22 +22,39 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+    if event.type == pygame.KEYDOWN:
+        if event.key == pygame.K_LEFT:
+            PlayerDirection = "L"
+        if event.key == pygame.K_RIGHT:
+            PlayerDirection = "R"
+        if event.key == pygame.K_UP:
+            PlayerDirection = "U"
+        if event.key == pygame.K_DOWN:
+            PlayerDirection = "D"
+              
+
 
 
     helios = pygame.image.load("daitaku.png")   
     screen.blit(helios, [0,0])
-    pygame.draw.rect(screen, [162,203,000], pygame.Rect(150,200,150,150))   
+    pygame.draw.rect(screen, [162,203,000], pygame.Rect(PlayerX,PlayerY,20,20))   
     # fill the screen with a color to wipe away anything from last frame
     # screen.fill("purple")
     
-    
-    
-
+    if PlayerDirection == "L":
+        PlayerX -= velocity
+    if PlayerDirection == "U":
+        PlayerY -=  velocity
+    if PlayerDirection == "D":
+        PlayerY += velocity
+    if PlayerDirection == "R":
+        PlayerX += velocity
     # RENDER YOUR GAME HERE
 
     # flip() the display to put your work on screen
     pygame.display.flip()
+    screen.fill("black")
 
-    clock.tick(60)  # limits FPS to 60
+    clock.tick(30)  # limits FPS to 30
 
 pygame.quit()
