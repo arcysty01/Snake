@@ -2,7 +2,11 @@ import pygame
 
 # pygame setup
 pygame.init()
-screen = pygame.display.set_mode((1280,720))
+HEIGHT = 800
+WIDTH = 600
+StartX = HEIGHT / 2
+StartY = WIDTH / 2
+screen = pygame.display.set_mode((HEIGHT,WIDTH))
 pygame.display.set_caption("Uma")
 font = pygame.font.SysFont("Comic Sans MS", 30)
 napis = font.render("Umamusume", False, [255,255,255])
@@ -10,12 +14,10 @@ screen.blit(napis, [330,210])
 pygame.display.flip()
 clock = pygame.time.Clock()
 running = True
-PlayerX = 100
-PlayerY = 100
+PlayerX = StartX
+PlayerY = StartY
 PlayerDirection = "L"
 velocity = 5
-
-
 
 while running:
     # poll for events
@@ -34,8 +36,10 @@ while running:
             PlayerDirection = "D"
             
               
-
-
+    if PlayerY < 0 or PlayerY > WIDTH - 20:
+        running = False
+    if PlayerX < 0 or PlayerX > HEIGHT - 20:
+        running = False
 
     helios = pygame.image.load("daitaku.png")   
     screen.blit(helios, [0,0])
@@ -43,6 +47,9 @@ while running:
     # fill the screen with a color to wipe away anything from last frame
     # screen.fill("purple")
     
+    print("X:", PlayerX + 20)
+    print("Y:", PlayerY)
+
     if PlayerDirection == "L":
         PlayerX -= velocity
     if PlayerDirection == "U":
