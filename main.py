@@ -2,7 +2,7 @@ import pygame
 
 # pygame setup
 pygame.init()
-screen = pygame.display.set_mode((1280, 720))
+screen = pygame.display.set_mode((800, 600))
 clock = pygame.time.Clock()
 running = True
 
@@ -14,7 +14,11 @@ while running:
             running = False
 
     # fill the screen with a color to wipe away anything from last frame
-    screen.fill("purple")
+    # screen.fill("purple")
+    
+    helios = pygame.image.load("daitaku.png")   
+    screen.blit(helios, [0,0])
+    
 
     # RENDER YOUR GAME HERE
 
