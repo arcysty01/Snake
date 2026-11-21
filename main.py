@@ -44,7 +44,7 @@ while running:
 
     helios = pygame.image.load("daitaku.png")   
     screen.blit(helios, [0,0])
-    pygame.draw.rect(screen, [162,203,000], pygame.Rect(PlayerX,PlayerY,20,20))   
+    pygame.draw.rect(screen, "red", pygame.Rect(PlayerX,PlayerY,20,20))   
     # fill the screen with a color to wipe away anything from last frame
     # screen.fill("purple")
 
