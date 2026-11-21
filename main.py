@@ -10,7 +10,6 @@ screen = pygame.display.set_mode((HEIGHT,WIDTH))
 pygame.display.set_caption("Uma")
 font = pygame.font.SysFont("Comic Sans MS", 30)
 napis = font.render("Umamusume", False, [255,255,255])
-screen.blit(napis, [330,210])
 pygame.display.flip()
 clock = pygame.time.Clock()
 running = True
@@ -35,7 +34,7 @@ while running:
         if event.key == pygame.K_DOWN:
             PlayerDirection = "D"
             
-              
+    screen.blit(napis, [330,210])  
     if PlayerY < 0 or PlayerY > WIDTH - 20:
         running = False
     if PlayerX < 0 or PlayerX > HEIGHT - 20:
