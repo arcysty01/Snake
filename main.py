@@ -50,10 +50,10 @@ while running:
 
     helios = pygame.image.load("daitaku.png")   
     screen.blit(helios, [0,0])
-    player = pygame.draw.rect(screen, "red", pygame.Rect(PlayerX,PlayerY,20,20))   
+    player = pygame.draw.rect(screen, "green", pygame.Rect(PlayerX,PlayerY,20,20))   
     
     if Visible == True:
-        apple = pygame.draw.rect(screen, "orange", pygame.Rect(RandomX, RandomY,20,20)) 
+        apple = pygame.draw.rect(screen, "red", pygame.Rect(RandomX, RandomY,20,20)) 
     else:
         RandomY = random.randrange(0, WIDTH - 20)
         RandomX = random.randrange(0, HEIGHT - 20)
@@ -75,7 +75,7 @@ while running:
 
     # flip() the display to put your work on screen
     pygame.display.flip()
-    screen.fill("black")
+    screen.fill("teal")
 
     clock.tick(30)  # limits FPS to 30
 
