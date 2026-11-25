@@ -31,15 +31,27 @@ while running:
             running = False
     if event.type == pygame.KEYDOWN:
         if event.key == pygame.K_LEFT:
-            PlayerDirection = "L"
+            if PlayerDirection == "R":
+                PlayerDirection = "R"
+            else:
+                PlayerDirection = "L"
+            
         if event.key == pygame.K_RIGHT:
-            PlayerDirection = "R"
+            if  PlayerDirection == "L":
+                 PlayerDirection == "L"
+            else:
+                PlayerDirection = "R"
         if event.key == pygame.K_UP:
-            PlayerDirection = "U"
+            if PlayerDirection == "D":
+                PlayerDirection = "D"
+            else:
+                PlayerDirection = "U"
         if event.key == pygame.K_DOWN:
-            PlayerDirection = "D"
-         
-
+            if PlayerDirection == "U":
+                PlayerDirection == "U"
+            else:
+                PlayerDirection = "D"
+        
     screen.blit(napis, [330,210])  
     if PlayerY < 0 or PlayerY > WIDTH - 20:
         PlayerY = StartY
@@ -68,6 +80,9 @@ while running:
         PlayerY += velocity
     if PlayerDirection == "R":
         PlayerX += velocity
+
+    
+
     
     if player.colliderect(apple):
         Visible = False
