@@ -22,10 +22,7 @@ Delay = 60
 RandomX = random.randrange(0, HEIGHT - 20)
 RandomY = random.randrange(0, WIDTH - 20)
 Visible = True
-
-def spawnApple():
-    pygame.draw.rect(screen, "orange", pygame.Rect(RandomX, RandomY,20,20))   
-
+    
 while running:
     # poll for events
     # pygame.QUIT event means the user clicked X to close your window
@@ -53,13 +50,14 @@ while running:
 
     helios = pygame.image.load("daitaku.png")   
     screen.blit(helios, [0,0])
-    pygame.draw.rect(screen, "red", pygame.Rect(PlayerX,PlayerY,20,20))   
+    player = pygame.draw.rect(screen, "red", pygame.Rect(PlayerX,PlayerY,20,20))   
     
     if Visible == True:
-        spawnApple()
+        apple = pygame.draw.rect(screen, "orange", pygame.Rect(RandomX, RandomY,20,20)) 
     else:
         RandomY = random.randrange(0, WIDTH - 20)
         RandomX = random.randrange(0, HEIGHT - 20)
+        Visible = True
 
 
     if PlayerDirection == "L":
@@ -70,6 +68,10 @@ while running:
         PlayerY += velocity
     if PlayerDirection == "R":
         PlayerX += velocity
+    
+    if player.colliderect(apple):
+        Visible = False
+    
 
     # flip() the display to put your work on screen
     pygame.display.flip()
